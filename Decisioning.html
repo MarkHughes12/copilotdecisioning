@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copilot Studio: Agent Decision Flowchart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom styles for connectors and layout */
+        .connector {
+            position: relative;
+            width: 2px;
+            background-color: #4b5563; /* gray-600 */
+        }
+        .horizontal-connector {
+            height: 2px;
+            background-color: #4b5563; /* gray-600 */
+        }
+        .node {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .node:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05), 0 0 0 2px #38bdf8; /* shadow-lg and sky-400 ring */
+        }
+        .decision-node {
+            border-left: 4px solid #0ea5e9; /* sky-500 */
+            background-color: #1f2937; /* gray-800 */
+        }
+        .recommendation-node {
+            border-left: 4px solid #10b981; /* emerald-500 */
+            background-color: #374151; /* gray-700 */
+        }
+        .path-label {
+            background-color: #111827; /* gray-900 */
+            padding: 2px 8px;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+        .yes-path {
+            color: #34d399; /* emerald-400 */
+            border: 1px solid #34d399;
+        }
+        .no-path {
+            color: #fbbf24; /* amber-400 */
+            border: 1px solid #fbbf24;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white p-4 sm:p-6 md:p-10">
+
+    <div class="max-w-7xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-emerald-400">Copilot Studio: Agent Decision Flowchart</h1>
+            <p class="mt-3 text-lg text-gray-400 max-w-3xl mx-auto">Follow the path to find the right tool for your AI agent development needs.</p>
+        </div>
+
+        <!-- Flowchart Structure -->
+        <div class="flex flex-col items-center space-y-8">
+
+            <!-- START NODE -->
+            <div class="bg-sky-600 text-white font-bold py-2 px-6 rounded-full shadow-lg">
+                START HERE
+            </div>
+            <div class="connector h-8"></div>
+
+            <!-- NEW QUESTION 1 -->
+            <div id="q1" class="node decision-node w-full max-w-2xl p-6 rounded-lg shadow-lg">
+                <p class="text-sm font-semibold text-sky-400 mb-2">QUESTION 1</p>
+                <h2 class="text-xl font-semibold text-gray-100">Do you need to publish your agent org-wide, to another platform, understand engagement analytics or integrate with other systems?</h2>
+            </div>
+
+            <!-- Branch for NEW Q1 -->
+            <div class="w-full max-w-4xl flex justify-center items-start relative">
+                <div class="connector h-8 absolute top-[-32px] left-1/2 -translate-x-1/2"></div>
+                <div class="horizontal-connector absolute top-8 left-0 w-full"></div>
+
+                <!-- YES Path -->
+                <div class="w-1/2 flex flex-col items-center px-4">
+                    <div class="connector h-8"></div>
+                    <div class="path-label yes-path mb-4">➡️ YES</div>
+                    <div id="ans1" class="node recommendation-node w-full max-w-md p-5 rounded-lg shadow-md">
+                        <p class="text-sm font-semibold text-emerald-400 mb-1">RECOMMENDATION</p>
+                        <h3 class="text-lg font-bold text-white">Copilot Studio</h3>
+                        <p class="text-gray-300 mt-2 text-sm">For enterprise-grade features like org-wide publishing, multi-channel deployment, analytics, and system integrations, Copilot Studio is the foundational platform.</p>
+                    </div>
+                </div>
+
+                <!-- NO Path -->
+                <div class="w-1/2 flex flex-col items-center px-4">
+                     <div class="connector h-8"></div>
+                     <div class="path-label no-path mb-4">⬇️ NO</div>
+                </div>
+            </div>
+
+            <!-- Connector to Q2 -->
+            <div class="connector h-8"></div>
+
+            <!-- QUESTION 2 -->
+            <div id="q2" class="node decision-node w-full max-w-2xl p-6 rounded-lg shadow-lg">
+                <p class="text-sm font-semibold text-sky-400 mb-2">QUESTION 2</p>
+                <h2 class="text-xl font-semibold text-gray-100">Is your primary goal to create an agent that answers questions based <span class="font-bold text-sky-300">only</span> on content from a single SharePoint site or specific libraries/folders?</h2>
+            </div>
+
+            <!-- Branch 2 -->
+            <div class="w-full max-w-4xl flex justify-center items-start relative">
+                <div class="connector h-8 absolute top-[-32px] left-1/2 -translate-x-1/2"></div>
+                <div class="horizontal-connector absolute top-8 left-0 w-full"></div>
+
+                <!-- YES Path -->
+                <div class="w-1/2 flex flex-col items-center px-4">
+                    <div class="connector h-8"></div>
+                    <div class="path-label yes-path mb-4">➡️ YES</div>
+                    <div id="ans2" class="node recommendation-node w-full max-w-md p-5 rounded-lg shadow-md">
+                        <p class="text-sm font-semibold text-emerald-400 mb-1">RECOMMENDATION</p>
+                        <h3 class="text-lg font-bold text-white">SharePoint Agent</h3>
+                        <p class="text-gray-300 mt-2 text-sm">The quickest way to create a focused Q&A experience for a team/project within SharePoint. Ideal for simple, context-specific knowledge management.</p>
+                    </div>
+                </div>
+
+                <!-- NO Path -->
+                <div class="w-1/2 flex flex-col items-center px-4">
+                     <div class="connector h-8"></div>
+                     <div class="path-label no-path mb-4">⬇️ NO</div>
+                </div>
+            </div>
+
+            <!-- Connector to Q3 -->
+            <div class="connector h-8"></div>
+
+            <!-- QUESTION 3 -->
+            <div id="q3" class="node decision-node w-full max-w-2xl p-6 rounded-lg shadow-lg">
+                <p class="text-sm font-semibold text-sky-400 mb-2">QUESTION 3</p>
+                <h2 class="text-xl font-semibold text-gray-100">Do you want to build a simple agent for personal/team use (summaries, Q&A from various sources) with a <span class="font-bold text-sky-300">no-code, natural language</span> interface?</h2>
+            </div>
+
+            <!-- Branch 3 -->
+            <div class="w-full max-w-4xl flex justify-center items-start relative">
+                <div class="connector h-8 absolute top-[-32px] left-1/2 -translate-x-1/2"></div>
+                <div class="horizontal-connector absolute top-8 left-0 w-full"></div>
+
+                <!-- YES Path -->
+                <div class="w-1/2 flex flex-col items-center px-4">
+                    <div class="connector h-8"></div>
+                    <div class="path-label yes-path mb-4">➡️ YES</div>
+                    <div id="ans3" class="node recommendation-node w-full max-w-md p-5 rounded-lg shadow-md">
+                        <p class="text-sm font-semibold text-emerald-400 mb-1">RECOMMENDATION</p>
+                        <h3 class="text-lg font-bold text-white">Agent Builder</h3>
+                        <p class="text-gray-300 mt-2 text-sm">A user-friendly, no-code tool in Copilot Studio for business users to create custom agents for personal or team productivity without deep technical expertise.</p>
+                    </div>
+                </div>
+
+                <!-- NO Path -->
+                <div class="w-1/2 flex flex-col items-center px-4">
+                     <div class="connector h-8"></div>
+                     <div class="path-label no-path mb-4">⬇️ NO</div>
+                </div>
+            </div>
+
+            <!-- Connector to Q4 -->
+            <div class="connector h-8"></div>
+
+            <!-- QUESTION 4 -->
+            <div id="q4" class="node decision-node w-full max-w-2xl p-6 rounded-lg shadow-lg">
+                <p class="text-sm font-semibold text-sky-400 mb-2">QUESTION 4</p>
+                <h2 class="text-xl font-semibold text-gray-100">Do you need a <span class="font-bold text-sky-300">robust, customized</span> agent with requirements like enterprise data connections, complex workflows, or custom UI?</h2>
+            </div>
+
+            <!-- Branch 4 -->
+            <div class="w-full max-w-4xl flex justify-center items-start relative">
+                <div class="connector h-8 absolute top-[-32px] left-1/2 -translate-x-1/2"></div>
+                <div class="horizontal-connector absolute top-8 left-0 w-full"></div>
+
+                <!-- YES Path -->
+                <div class="w-1/2 flex flex-col items-center px-4">
+                    <div class="connector h-8"></div>
+                    <div class="path-label yes-path mb-4">➡️ YES</div>
+                    <div id="ans4" class="node recommendation-node w-full max-w-md p-5 rounded-lg shadow-md">
+                        <p class="text-sm font-semibold text-emerald-400 mb-1">RECOMMENDATION</p>
+                        <h3 class="text-lg font-bold text-white">Copilot Studio</h3>
+                        <p class="text-gray-300 mt-2 text-sm">A powerful low-code platform for demanding use cases. Use this for integrations, sophisticated conversations, and granular control over agent functionality.</p>
+                    </div>
+                </div>
+
+                <!-- NO Path -->
+                <div class="w-1/2 flex flex-col items-center px-4">
+                     <div class="connector h-8"></div>
+                     <div class="path-label no-path mb-4">⬇️ NO</div>
+                </div>
+            </div>
+
+            <!-- Connector to Q5 -->
+            <div class="connector h-8"></div>
+
+            <!-- QUESTION 5 -->
+            <div id="q5" class="node decision-node w-full max-w-2xl p-6 rounded-lg shadow-lg">
+                <p class="text-sm font-semibold text-sky-400 mb-2">QUESTION 5</p>
+                <h2 class="text-xl font-semibold text-gray-100">Does your process require <span class="font-bold text-sky-300">multiple, specialized agents</span> to collaborate and delegate tasks to solve a complex, cross-functional problem?</h2>
+            </div>
+
+            <!-- Branch 5 -->
+            <div class="w-full max-w-4xl flex justify-center items-start relative">
+                <div class="connector h-8 absolute top-[-32px] left-1/2 -translate-x-1/2"></div>
+                <div class="horizontal-connector absolute top-8 left-0 w-full"></div>
+
+                <!-- YES Path -->
+                <div class="w-1/2 flex flex-col items-center px-4">
+                    <div class="connector h-8"></div>
+                    <div class="path-label yes-path mb-4">➡️ YES</div>
+                    <div id="ans5" class="node recommendation-node w-full max-w-md p-5 rounded-lg shadow-md">
+                        <p class="text-sm font-semibold text-emerald-400 mb-1">RECOMMENDATION</p>
+                        <h3 class="text-lg font-bold text-white">Multi-Agent Orchestration</h3>
+                        <p class="text-gray-300 mt-2 text-sm">An advanced feature within Copilot Studio to build a team of collaborating agents for complex, enterprise-level challenges.</p>
+                    </div>
+                </div>
+
+                <!-- NO Path -->
+                <div class="w-1/2 flex flex-col items-center px-4">
+                     <div class="connector h-8"></div>
+                     <div class="path-label no-path mb-4">➡️ NO</div>
+                     <div id="ans_fallback" class="node recommendation-node w-full max-w-md p-5 rounded-lg shadow-md">
+                        <p class="text-sm font-semibold text-emerald-400 mb-1">RECOMMENDATION</p>
+                        <h3 class="text-lg font-bold text-white">Copilot Studio</h3>
+                        <p class="text-gray-300 mt-2 text-sm">If you've reached this point, your needs can likely be met by the core Copilot Studio platform. It offers a broad range of capabilities for most single-agent scenarios.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
